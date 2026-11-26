@@ -1,6 +1,7 @@
 // ---- Settings: edit these two lines ---------------------------------------
 const WHATSAPP_NUMBER = '201021503909'; // country code + number, digits only
 const CURRENCY = 'EGP';
+const BOTTLE_SIZE = '50 ml';
 const SHEET_URL = ''; // optional: Google Apps Script web-app URL that logs every order (see README-orders.txt)
 // ---------------------------------------------------------------------------
 
@@ -11,93 +12,93 @@ const SHEET_URL = ''; // optional: Google Apps Script web-app URL that logs ever
 const PERFUMES = [
   {
     name: 'ICON',
+    price: 300,
     image: 'icon.jpg',
     type: 'men',
     tagline: 'Fresh, aromatic and confident',
     notes: ['Bergamot', 'Lavender', 'Tonka bean', 'Cedar'],
-    color: '#5b8fb9',
-    price:300
+    color: '#5b8fb9'
   },
   {
     name: 'COGNAC',
+    price: 400,
     image: 'cognac.jpg',
     type: 'unisex',
     tagline: 'Warm, boozy and velvety',
     notes: ['Cognac', 'Cinnamon', 'Vanilla', 'Oak'],
-    color: '#b8742f',
-    price:400   
+    color: '#b8742f'
   },
   {
     name: 'GOLD RUSH',
+    price: 300,
     image: 'gold-rush.jpg',
     type: 'men',
     tagline: 'Sweet honey with a bold tobacco edge',
     notes: ['Mint', 'Honey', 'Tobacco', 'Tonka bean'],
-    color: '#d4a537',
-    price:300
+    color: '#d4a537'
   },
   {
     name: 'SPICE CAKE',
+    price: 350,
     image: 'spice-cake.jpg',
     type: 'unisex',
     tagline: 'Spiced dates and warm baked sweetness',
     notes: ['Cinnamon', 'Nutmeg', 'Dates', 'Praline'],
-    color: '#a2552b',
-    price:350
+    color: '#a2552b'
   },
   {
     name: 'CREAM',
+    price: 350,
     image: 'cream.jpg',
     type: 'unisex',
     tagline: 'Soft, milky and comforting',
     notes: ['Milk', 'Rice', 'Vanilla', 'Sandalwood'],
-    color: '#e6d5b8',
-    price:350
+    color: '#e6d5b8'
   },
   {
     name: 'NOBLE',
+    price: 400,
     image: 'noble.jpg',
     type: 'men',
     tagline: 'Elegant, powdery and refined',
     notes: ['Iris', 'Lavender', 'Amber', 'Cedar'],
-    color: '#3c4f73',
-    price:400 
+    color: '#3c4f73'
   },
   {
     name: 'FLUFFY',
+    price: 350,
     image: 'fluffy.jpg',
     type: 'women',
     tagline: 'Playful marshmallow and soft vanilla',
     notes: ['Marshmallow', 'Vanilla', 'Musk', 'Caramel'],
-    color: '#e9a8c0',
-    price:350
+    color: '#e9a8c0'
   },
   {
     name: 'SUGAR POP',
+    price: 300,
     image: 'sugar-pop.jpg',
     type: 'women',
     tagline: 'Bright, sweet and candy-like',
     notes: ['Tangerine', 'Orchid', 'Candy floss', 'White musk'],
-    color: '#f08fb2',
-    price:300
+    color: '#f08fb2'
   },
   {
     name: 'DARK BLOOM',
+    price: 370,
     image: 'dark-bloom.jpg',
     type: 'unisex',
     tagline: 'Dark florals, rich and mysterious',
     notes: ['Black orchid', 'Patchouli', 'Dark chocolate', 'Incense'],
-    color: '#3a2147',
-    price:370
+    color: '#3a2147'
   },
   {
     name: 'DESIRE',
+    price: 400,
     image: 'desire.jpg',
     type: 'men',
     tagline: 'Spiced, sweet and magnetic',
     notes: ['Pink pepper', 'Juniper', 'Chestnut', 'Amber'],
-    color: '#8a1f2b',
-    price:400 
+    color: '#8a1f2b'
   }
 ];
 
@@ -153,7 +154,7 @@ function card(perfume) {
     <a class="card${perfume.soldOut ? ' is-sold' : ''}" href="${pageLink(perfume)}" aria-label="View ${escapeHtml(perfume.name)}">
       <div class="card-art ${perfume.image ? 'has-photo' : ''}">${artFor(perfume)}${perfume.soldOut ? '<span class="sold-tag">Sold out</span>' : ''}</div>
       <div class="card-body">
-        <p class="card-type">${TYPE_LABEL[perfume.type]}</p>
+        <p class="card-type">${TYPE_LABEL[perfume.type]} · ${BOTTLE_SIZE}</p>
         <h3>${perfume.name}</h3>
         <p class="tagline">${perfume.tagline}</p>
         <ul class="notes">${notes}</ul>
@@ -227,7 +228,7 @@ function renderDetail(perfume) {
       <div class="detail-grid">
         <div class="detail-art ${perfume.image ? 'has-photo' : ''}">${artFor(perfume)}${perfume.soldOut ? '<span class="sold-tag">Sold out</span>' : ''}</div>
         <div>
-          <p class="card-type">${TYPE_LABEL[perfume.type]}</p>
+          <p class="card-type">${TYPE_LABEL[perfume.type]} · ${BOTTLE_SIZE}</p>
           <h1>${perfume.name}</h1>
           <p class="tagline">${perfume.tagline}</p>
           ${noteGroup(perfume)}
@@ -261,7 +262,7 @@ function orderMessage(perfume, qty, customer) {
   return [
     'New order — Atlas Scent',
     '',
-    `Perfume: ${perfume.name} × ${qty}`,
+    `Perfume: ${perfume.name} (${BOTTLE_SIZE}) × ${qty}`,
     ...(perfume.price ? [`Total: ${money(perfume.price * qty)}`] : []),
     '',
     `Name: ${customer.firstName} ${customer.lastName}`,
@@ -273,7 +274,7 @@ function orderMessage(perfume, qty, customer) {
 
 function logOrder(perfume, qty, customer) {
   if (!SHEET_URL) return;
-  const record = { ...customer, items: `${perfume.name} × ${qty}`, total: perfume.price ? perfume.price * qty : '' };
+  const record = { ...customer, items: `${perfume.name} (${BOTTLE_SIZE}) × ${qty}`, total: perfume.price ? perfume.price * qty : '' };
   try {
     fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', keepalive: true, body: JSON.stringify(record) });
   } catch {
