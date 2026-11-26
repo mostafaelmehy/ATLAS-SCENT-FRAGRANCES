@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atlas Scent — The Art of Fragrance</title>
+  <meta name="description" content="Atlas Scent — a curated collection of ten signature fragrances. Order directly on WhatsApp.">
+  <meta name="theme-color" content="#121212">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa-icon" viewBox="0 0 32 32"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.38 4 15.02c0 2.12.55 4.19 1.6 6.01L4 29l8.17-1.57a12.03 12.03 0 0 0 3.87.63C22.68 28.06 28 22.66 28 16.02 28 9.38 22.68 3 16.04 3zm0 22.04c-1.2 0-2.38-.2-3.5-.6l-.5-.18-4.85.93.96-4.72-.32-.5a9.97 9.97 0 0 1-1.54-5.3c0-5.5 4.5-9.97 10.03-9.97 5.52 0 10.02 4.47 10.02 9.97s-4.5 10.37-9.3 10.37zm5.5-7.5c-.3-.15-1.78-.88-2.06-.98-.27-.1-.47-.15-.67.15-.2.3-.77.98-.95 1.18-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.6.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.23 5.13 4.53.72.3 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.08 1.78-.72 2.03-1.42.25-.7.25-1.3.18-1.42-.08-.12-.28-.2-.58-.35z"/></symbol></svg>
+  <header class="topbar">
+    <a href="#top" class="logo">Atlas <span>Scent</span></a>
+    <a href="#collection" class="topbar-link">Collection</a>
+  </header>
+
+  <main id="top">
+    <div id="home">
+    <section class="banner">
+      <div class="banner-inner">
+        <p class="eyebrow">Atlas Scent</p>
+        <h1>The Art of Fragrance</h1>
+        <span class="rule"></span>
+        <a href="#collection" class="btn btn-gold">Explore the collection</a>
+      </div>
+    </section>
+
+    <section id="collection" class="collection">
+      <div class="section-head">
+        <p class="eyebrow">Ten signatures</p>
+        <h2>Our Collection</h2>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter by type">
+        <button type="button" class="chip is-active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="men">Men</button>
+        <button type="button" class="chip" data-filter="women">Women</button>
+        <button type="button" class="chip" data-filter="unisex">Unisex</button>
+      </div>
+
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section class="order-note">
+      <h2>How to order</h2>
+      <p>Open the fragrance you like, fill in your delivery details, and we'll open WhatsApp with your order already written. Just tap <strong>Send</strong> and we'll confirm with you directly.</p>
+    </section>
+    </div>
+    <section id="detail" class="detail" hidden></section>
+  </main>
+
+  <footer class="footer">
+    <p class="logo">Atlas <span>Scent</span></p>
+    <p>The Art of Fragrance</p>
+  </footer>
+
+
+  <a id="wa-float" class="wa-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><use href="#wa-icon"/></svg>
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>
