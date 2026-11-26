@@ -15,7 +15,8 @@ const PERFUMES = [
     type: 'men',
     tagline: 'Fresh, aromatic and confident',
     notes: ['Bergamot', 'Lavender', 'Tonka bean', 'Cedar'],
-    color: '#5b8fb9'
+    color: '#5b8fb9',
+    price:300
   },
   {
     name: 'COGNAC',
@@ -23,7 +24,8 @@ const PERFUMES = [
     type: 'unisex',
     tagline: 'Warm, boozy and velvety',
     notes: ['Cognac', 'Cinnamon', 'Vanilla', 'Oak'],
-    color: '#b8742f'
+    color: '#b8742f',
+    price:400   
   },
   {
     name: 'GOLD RUSH',
@@ -31,7 +33,8 @@ const PERFUMES = [
     type: 'men',
     tagline: 'Sweet honey with a bold tobacco edge',
     notes: ['Mint', 'Honey', 'Tobacco', 'Tonka bean'],
-    color: '#d4a537'
+    color: '#d4a537',
+    price:300
   },
   {
     name: 'SPICE CAKE',
@@ -39,7 +42,8 @@ const PERFUMES = [
     type: 'unisex',
     tagline: 'Spiced dates and warm baked sweetness',
     notes: ['Cinnamon', 'Nutmeg', 'Dates', 'Praline'],
-    color: '#a2552b'
+    color: '#a2552b',
+    price:350
   },
   {
     name: 'CREAM',
@@ -47,7 +51,8 @@ const PERFUMES = [
     type: 'unisex',
     tagline: 'Soft, milky and comforting',
     notes: ['Milk', 'Rice', 'Vanilla', 'Sandalwood'],
-    color: '#e6d5b8'
+    color: '#e6d5b8',
+    price:350
   },
   {
     name: 'NOBLE',
@@ -55,7 +60,8 @@ const PERFUMES = [
     type: 'men',
     tagline: 'Elegant, powdery and refined',
     notes: ['Iris', 'Lavender', 'Amber', 'Cedar'],
-    color: '#3c4f73'
+    color: '#3c4f73',
+    price:400 
   },
   {
     name: 'FLUFFY',
@@ -63,7 +69,8 @@ const PERFUMES = [
     type: 'women',
     tagline: 'Playful marshmallow and soft vanilla',
     notes: ['Marshmallow', 'Vanilla', 'Musk', 'Caramel'],
-    color: '#e9a8c0'
+    color: '#e9a8c0',
+    price:350
   },
   {
     name: 'SUGAR POP',
@@ -71,7 +78,8 @@ const PERFUMES = [
     type: 'women',
     tagline: 'Bright, sweet and candy-like',
     notes: ['Tangerine', 'Orchid', 'Candy floss', 'White musk'],
-    color: '#f08fb2'
+    color: '#f08fb2',
+    price:300
   },
   {
     name: 'DARK BLOOM',
@@ -79,7 +87,8 @@ const PERFUMES = [
     type: 'unisex',
     tagline: 'Dark florals, rich and mysterious',
     notes: ['Black orchid', 'Patchouli', 'Dark chocolate', 'Incense'],
-    color: '#3a2147'
+    color: '#3a2147',
+    price:370
   },
   {
     name: 'DESIRE',
@@ -87,7 +96,8 @@ const PERFUMES = [
     type: 'men',
     tagline: 'Spiced, sweet and magnetic',
     notes: ['Pink pepper', 'Juniper', 'Chestnut', 'Amber'],
-    color: '#8a1f2b'
+    color: '#8a1f2b',
+    price:400 
   }
 ];
 
